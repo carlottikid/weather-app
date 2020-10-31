@@ -1,45 +1,42 @@
-window.onload = function () {
-  function displayDateTime() {
-    let now = new Date();
-    let date = now.getDate();
-    let year = now.getFullYear();
-    let hour = now.getHours();
-    let minutes = now.getMinutes();
+let now = new Date();
+let date = now.getDate();
+let year = now.getFullYear();
+let hour = now.getHours();
+let minutes = now.getMinutes();
 
-    let days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    let day = days[now.getDay()];
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[now.getDay()];
 
-    let months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    let month = months[now.getMonth()];
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+let month = months[now.getMonth()];
 
-    let currentTime = document.querySelector("#current-time");
-    currentTime.innerHTML = `xx`;
+let currentTime = document.querySelector("#current-time");
+currentTime.innerHTML = `${hour}:${minutes}`;
 
-    let currentDate = document.querySelector("#current-date");
-    currentDate.innerHTML = `${day}, ${month} ${date}, ${year}`;
-  }
-};
+let currentDate = document.querySelector("#current-date");
+currentDate.innerHTML = `${day}, ${month} ${date}, ${year}`;
+
 function search(event) {
   event.preventDefault();
   let searchCity = document.querySelector("#input-city");
