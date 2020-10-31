@@ -80,10 +80,6 @@ function handlePosition(position) {
     .then(showLocTemp);
 }
 
-//function test(response) {
-// console.log(response);
-//}
-
 function showLocTemp(response) {
   let localCity = response.data.name;
   let currentCity = document.querySelector("#current-city");
@@ -98,10 +94,14 @@ function showCityTemp(response) {
   let searchCity = response.data.name;
   let location = document.querySelector("#current-city");
   let cityTemp = Math.round(response.data.main.temp);
+  let weatherDesc = response.data.weather[0].description;
+  let weatherDisp = document.querySelector(".current-weather-desc");
   let currentTemp = document.querySelector("#current-temp");
   location.innerHTML = `${searchCity}`;
+  weatherDisp.innerHTML = `${weatherDesc}`;
   currentTemp.innerHTML = `${cityTemp}°`;
   console.log(cityTemp);
+  console.log(response.data.weather[0].description);
 }
 
 let loc = document.querySelector("#loc-link");

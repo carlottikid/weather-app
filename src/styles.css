@@ -28,6 +28,7 @@ body {
 }
 .current-weather-desc {
   padding: 24px 0px 0px 0px;
+  text-transform: capitalize;
   font-size: 24px;
 }
 .current-temp {
