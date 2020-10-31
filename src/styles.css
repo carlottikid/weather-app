@@ -4,7 +4,7 @@ body {
   color: #1a3263;
 }
 
-h1 {
+.container h1 {
   font-family: "Rubik", sans-serif;
   font-size: 24px;
   color: #666461;
@@ -13,7 +13,7 @@ h1 {
 .current-city {
   font-size: 36px;
   display: block;
-  margin: 32px 0 0 0;
+  margin: 32px 0 8px 0;
 }
 .date-time {
   text-transform: uppercase;
