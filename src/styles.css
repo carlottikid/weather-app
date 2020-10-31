@@ -1,0 +1,76 @@
+body {
+  font-family: "Karla", sans-serif;
+  margin: 20px;
+  color: #1a3263;
+}
+
+h1 {
+  font-family: "Rubik", sans-serif;
+  font-size: 24px;
+  color: #666461;
+  margin: 20px auto;
+}
+.current-city {
+  font-size: 36px;
+  display: block;
+  margin: 32px 0 0 0;
+}
+.date-time {
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 16px;
+}
+.current-weather-icon {
+  text-align: left;
+  padding: 4px 16px;
+  font-size: 60px;
+  color: #fab95b;
+}
+.current-weather-desc {
+  padding: 24px 0px 0px 0px;
+  font-size: 24px;
+}
+.current-temp {
+  padding: 4px 16px;
+  margin: 0px 64px 0px 0px;
+  text-align: left;
+  font-size: 60px;
+  font-weight: bolder;
+  line-height: 60px;
+}
+.future-temp {
+  font-size: 16px;
+  font-weight: bold;
+}
+.future-icon {
+  font-size: 32px;
+  color: #fab95b;
+}
+.precip {
+  display: block;
+}
+.wind {
+  display: block;
+}
+.test {
+  background-color: red;
+}
+.space {
+  padding: 30px 0px;
+}
+#temp-unit {
+  font-size: 25%;
+  color: gray;
+}
+#temp-unit:hover {
+  cursor: pointer;
+}
+#loc-link {
+  display: block;
+  margin: 4px 0px 0px 0px;
+}
+#loc-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}
