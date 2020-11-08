@@ -1,7 +1,7 @@
 window.onload = function () {
   axios
     .get(
-      "http://api.openweathermap.org/data/2.5/forecast?q=Philadelphia&appid=3fb0121c59482bb76311376a76043900&units=imperial&cnt=6"
+      "https://api.openweathermap.org/data/2.5/forecast?q=Philadelphia&appid=3fb0121c59482bb76311376a76043900&units=imperial&cnt=6"
     )
     .then(consoleLog);
   //.get(`${weatherApi}q=Philadelphia&appid=${apiKey}&units=imperial`)
@@ -112,7 +112,7 @@ far.addEventListener("click", toFarenheight);
 let cel = document.querySelector("#celcius");
 cel.addEventListener("click", toCelcius);
 
-let weatherApi = `http://api.openweathermap.org/data/2.5/forecast?&units=imperial&cnt=6&appid=`;
+let weatherApi = `https://api.openweathermap.org/data/2.5/forecast?&units=imperial&cnt=6&appid=`;
 let apiKey = "3fb0121c59482bb76311376a76043900";
 
 let loc = document.querySelector("#loc-link");
