@@ -30,7 +30,7 @@ function showWeather(response) {
   let currentTemp = Math.round(response.data.list[0].main.temp);
   let weatherDesc = response.data.list[0].weather[0].description;
   let pop = response.data.list[0].pop;
-  let windSpeed = response.data.list[0].wind.speed;
+  let windSpeed = Math.round(response.data.list[0].wind.speed);
   let weatherDisp = document.querySelector(".current-weather-desc");
   let temp = document.querySelector("#current-temp");
   let precip = document.querySelector("#precip");
