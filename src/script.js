@@ -3,7 +3,7 @@ window.onload = function () {
     .get(
       "https://api.openweathermap.org/data/2.5/forecast?q=Philadelphia&appid=3fb0121c59482bb76311376a76043900&units=imperial&cnt=6"
     )
-    .then(consoleLog);
+    .then(showWeather);
   //.get(`${weatherApi}q=Philadelphia&appid=${apiKey}&units=imperial`)
   //.then(showCityTemp);
 };
@@ -24,23 +24,19 @@ function handlePosition(position) {
   axios.get(`${weatherApi}${apiKey}&lat=${lat}&lon=${lon}`).then(showWeather);
 }
 
-//function showLocTemp(response) {
-//  let localCity = response.data.city.name;
-//  let currentCity = document.querySelector("#current-city");
-// let temp = Math.round(response.data.list[0].main.temp);
-//  let currentTemp = document.querySelector("#current-temp");
-//  currentCity.innerHTML = `${localCity}`;
-//  currentTemp.innerHTML = `${temp}°`;
-//  console.log(temp);
-//}
-
 function showWeather(response) {
   let city = response.data.city.name;
   let location = document.querySelector("#current-city");
   let currentTemp = Math.round(response.data.list[0].main.temp);
   let weatherDesc = response.data.list[0].weather[0].description;
+  let pop = response.data.list[0].pop;
+  let windSpeed = response.data.list[0].wind.speed;
   let weatherDisp = document.querySelector(".current-weather-desc");
   let temp = document.querySelector("#current-temp");
+  let precip = document.querySelector("#precip");
+  let wind = document.querySelector("#wind");
+  wind.innerHTML = `${windSpeed}`;
+  precip.innerHTML = `${pop}`;
   location.innerHTML = `${city}`;
   weatherDisp.innerHTML = `${weatherDesc}`;
   temp.innerHTML = `${currentTemp}°`;

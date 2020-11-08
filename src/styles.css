@@ -59,6 +59,9 @@ body {
 .space {
   padding: 30px 0px;
 }
+.secondary-metric {
+  padding-left: 8px;
+}
 #temp-unit {
   font-size: 25%;
   color: gray;
