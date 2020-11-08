@@ -1,8 +1,18 @@
 window.onload = function () {
   axios
-    .get(`${weatherApi}q=Philadelphia&appid=${apiKey}&units=imperial`)
-    .then(showCityTemp);
+    .get(
+      "http://api.openweathermap.org/data/2.5/forecast?q=Philadelphia&appid=3fb0121c59482bb76311376a76043900&units=imperial&cnt=6"
+    )
+    .then(consoleLog);
+  //.get(`${weatherApi}q=Philadelphia&appid=${apiKey}&units=imperial`)
+  //.then(showCityTemp);
 };
+function consoleLog(response) {
+  console.log(response.data.list[0].main.temp);
+  console.log(response.data.list[0].weather[0].description);
+  console.log(response.data.list[0].pop);
+  console.log(response.data.city.name);
+}
 
 function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(handlePosition);
@@ -11,33 +21,29 @@ function getCurrentPosition(event) {
 function handlePosition(position) {
   let lat = Math.round(position.coords.latitude);
   let lon = Math.round(position.coords.longitude);
-  axios
-    .get(`${weatherApi}&lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
-    .then(showLocTemp);
+  axios.get(`${weatherApi}${apiKey}&lat=${lat}&lon=${lon}`).then(showWeather);
 }
 
-function showLocTemp(response) {
-  let localCity = response.data.name;
-  let currentCity = document.querySelector("#current-city");
-  let temp = Math.round(response.data.main.temp);
-  let currentTemp = document.querySelector("#current-temp");
-  currentCity.innerHTML = `${localCity}`;
-  currentTemp.innerHTML = `${temp}°`;
-  console.log(temp);
-}
+//function showLocTemp(response) {
+//  let localCity = response.data.city.name;
+//  let currentCity = document.querySelector("#current-city");
+// let temp = Math.round(response.data.list[0].main.temp);
+//  let currentTemp = document.querySelector("#current-temp");
+//  currentCity.innerHTML = `${localCity}`;
+//  currentTemp.innerHTML = `${temp}°`;
+//  console.log(temp);
+//}
 
-function showCityTemp(response) {
-  let searchCity = response.data.name;
+function showWeather(response) {
+  let city = response.data.city.name;
   let location = document.querySelector("#current-city");
-  let cityTemp = Math.round(response.data.main.temp);
-  let weatherDesc = response.data.weather[0].description;
+  let currentTemp = Math.round(response.data.list[0].main.temp);
+  let weatherDesc = response.data.list[0].weather[0].description;
   let weatherDisp = document.querySelector(".current-weather-desc");
-  let currentTemp = document.querySelector("#current-temp");
-  location.innerHTML = `${searchCity}`;
+  let temp = document.querySelector("#current-temp");
+  location.innerHTML = `${city}`;
   weatherDisp.innerHTML = `${weatherDesc}`;
-  currentTemp.innerHTML = `${cityTemp}°`;
-  console.log(cityTemp);
-  console.log(response.data.weather[0].description);
+  temp.innerHTML = `${currentTemp}°`;
 }
 
 function search(event) {
@@ -45,9 +51,7 @@ function search(event) {
   let searchCity = document.querySelector("#input-city");
   let apiInput = searchCity.value.replace(/\s/g, "");
   console.log(apiInput);
-  axios
-    .get(`${weatherApi}q=${apiInput}&appid=${apiKey}&units=imperial`)
-    .then(showCityTemp);
+  axios.get(`${weatherApi}${apiKey}&q=${apiInput}`).then(showWeather);
 }
 
 function toFarenheight() {
@@ -108,7 +112,7 @@ far.addEventListener("click", toFarenheight);
 let cel = document.querySelector("#celcius");
 cel.addEventListener("click", toCelcius);
 
-let weatherApi = "https://api.openweathermap.org/data/2.5/weather?";
+let weatherApi = `http://api.openweathermap.org/data/2.5/forecast?&units=imperial&cnt=6&appid=`;
 let apiKey = "3fb0121c59482bb76311376a76043900";
 
 let loc = document.querySelector("#loc-link");
