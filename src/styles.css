@@ -62,6 +62,14 @@ body {
 .secondary-metric {
   padding-left: 8px;
 }
+.card-body {
+  border-radius: 8px;
+  background: #f4f1ee;
+}
+.card-body img {
+  object-fit: contain;
+  max-width: 100%;
+}
 #temp-unit {
   font-size: 25%;
   color: gray;
@@ -77,4 +85,8 @@ body {
   cursor: pointer;
   text-decoration: underline;
   color: blue;
+}
+#byline {
+  display: block;
+  margin: 60px 0px 0px 0px;
 }

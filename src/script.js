@@ -4,9 +4,8 @@ window.onload = function () {
       "https://api.openweathermap.org/data/2.5/forecast?q=Philadelphia&appid=3fb0121c59482bb76311376a76043900&units=imperial"
     )
     .then(showAll);
-  //.get(`${weatherApi}q=Philadelphia&appid=${apiKey}&units=imperial`)
-  //.then(showCityTemp);
 };
+
 function showAll(response) {
   showWeather(response);
   showForecast(response);
@@ -82,8 +81,8 @@ function showForecast(response) {
               forecast.dt_txt
             )}</h6>
             <img src="https://openweathermap.org/img/wn/${
-              forecast.weather.icon
-            }"></img>
+              forecast.weather[0].icon
+            }@2x.png"></img>
             <p class="card-text future-temp">
               <span>${Math.round(forecast.main.temp)}°</span>
             </p>
@@ -98,17 +97,7 @@ function search(event) {
   let searchCity = document.querySelector("#input-city");
   let apiInput = searchCity.value.replace(/\s/g, "");
   console.log(apiInput);
-  axios.get(`${weatherApi}${apiKey}&q=${apiInput}`).then(showWeather);
-}
-
-function toFarenheight() {
-  let temp = document.querySelector("#current-temp");
-  temp.innerHTML = "65°";
-}
-
-function toCelcius() {
-  let temp = document.querySelector("#current-temp");
-  temp.innerHTML = "18°";
+  axios.get(`${weatherApi}${apiKey}&q=${apiInput}`).then(showAll);
 }
 
 let now = new Date();
@@ -152,12 +141,6 @@ currentDate.innerHTML = `${day}, ${month} ${date}, ${year}`;
 
 let searchForm = document.querySelector("#find-city");
 searchForm.addEventListener("submit", search);
-
-let far = document.querySelector("#farenheight");
-far.addEventListener("click", toFarenheight);
-
-let cel = document.querySelector("#celcius");
-cel.addEventListener("click", toCelcius);
 
 let weatherApi = `https://api.openweathermap.org/data/2.5/forecast?&units=imperial&cnt=6&appid=`;
 let apiKey = "3fb0121c59482bb76311376a76043900";
