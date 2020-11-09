@@ -26,15 +26,20 @@
       <h1>Weather Around the World</h1>
       <form class="row" id="find-city">
         <div class="col-10">
-            <input
-              class="form-control form-control-lg"
-              type="search"
-              placeholder="Enter a City"
-              id="input-city"
-            />
+          <input
+            class="form-control form-control-lg"
+            type="search"
+            placeholder="Enter a City"
+            id="input-city"
+          />
         </div>
         <div class="col-2">
-          <input type="submit" value="Search" class="btn btn-success btn-lg" id="search-btn"/>
+          <input
+            type="submit"
+            value="Search"
+            class="btn btn-success btn-lg"
+            id="search-btn"
+          />
         </div>
       </form>
       <div class="row">
@@ -44,7 +49,7 @@
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <h2 class="current-city" id="current-city">Philadelphia</h2>
+          <h2 class="current-city" id="current-city"></h2>
         </div>
         <div class="col-sm-12 date-time">
           <span id="current-date"></span>
@@ -63,64 +68,39 @@
         </div>
         <div class="current-temp">
           <span id="current-temp"></span>
-          <span id="temp-unit"><a id="farenheight">F</a> | <a id="celcius">C</a>
+          <span id="temp-unit">
+            <a id="farenheight">F</a>
+            |
+            <a id="celcius">C</a>
           </span>
         </div>
-        <div class="d-flex justify-content-center" style="flex-direction: column;">
+        <div
+          class="d-flex justify-content-center"
+          style="flex-direction: column"
+        >
           <div class="d-flex">
-            Precipitation<span class="secondary-metric" id = "precip"></span> %
+            Precipitation
+            <span class="secondary-metric" id="precip"></span>
+            %
           </div>
           <div class="d-flex">
-           Wind<span class="secondary-metric" id = "wind"></span>mph
+            Wind
+            <span class="secondary-metric" id="wind"></span>
+            mph
           </div>
         </div>
       </div>
       <div class="space"></div>
-      <div class="d-flex align-items-center justify-content-between flex-sm-wrap">
-        <div class="card text-center border-0" style="width: 18%;">
-          <div class="card-body">
-            <h6 class="card-title future-temp">MON</h6>
-            <i class="card-text fas fa-sun future-icon"></i>
-            <p class="card-text future-temp">65 / 48</p>
-          </div>
-        </div>
-        <div class="card text-center border-0" style="width: 18%;">
-          <div class="card-body">
-            <h6 class="card-title future-temp">TUE</h6>
-            <i class="card-text fas fa-sun future-icon"></i>
-            <p class="card-text future-temp">65 / 48</p>
-          </div>
-        </div>
-        <div class="card text-center border-0" style="width: 18%;">
-          <div class="card-body">
-            <h6 class="card-title future-temp">WED</h6>
-            <i class="card-text fas fa-sun future-icon"></i>
-            <p class="card-text future-temp">65 / 48</p>
-          </div>
-        </div>
-        <div class="card text-center border-0" style="width: 18%;">
-          <div class="card-body">
-            <h6 class="card-title future-temp">THR</h6>
-            <i class="card-text fas fa-sun future-icon"></i>
-            <p class="card-text future-temp">65 / 48</p>
-          </div>
-        </div>
-        <div class="card text-center border-0" style="width: 18%;">
-          <div class="card-body">
-            <h6 class="card-title future-temp">FRI</h6>
-            <i class="card-text fas fa-sun future-icon"></i>
-            <p class="card-text future-temp">65 / 48</p>
-          </div>
-        </div>
-      </div>
+      <div
+        class="d-flex align-items-center justify-content-between flex-sm-wrap"
+        id="forecast"
+      ></div>
       <div class="row">
-        https://github.com/carlottikid/weather-app
+        <a href="https://github.com/carlottikid/weather-app">
+          Built by Jessica Carlotti on GitHub
+        </a>
       </div>
-		</div>
     </div>
-    <script 
-    type="text/javascript" 
-    src="src/script.js">
-    </script>
+    <script type="text/javascript" src="src/script.js"></script>
   </body>
 </html>
