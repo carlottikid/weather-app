@@ -46,7 +46,7 @@ function getCurrentPosition(event) {
 function handlePosition(position) {
   let lat = Math.round(position.coords.latitude);
   let lon = Math.round(position.coords.longitude);
-  axios.get(`${weatherApi}${apiKey}&lat=${lat}&lon=${lon}`).then(showWeather);
+  axios.get(`${weatherApi}${apiKey}&lat=${lat}&lon=${lon}`).then(showAll);
 }
 
 function showWeather(response) {
@@ -95,7 +95,7 @@ function showForecast(response) {
 function search(event) {
   event.preventDefault();
   let searchCity = document.querySelector("#input-city");
-  let apiInput = searchCity.value.replace(/\s/g, "");
+  let apiInput = searchCity.value.replace(/\s/g, " ");
   console.log(apiInput);
   axios.get(`${weatherApi}${apiKey}&q=${apiInput}`).then(showAll);
 }
@@ -103,8 +103,6 @@ function search(event) {
 let now = new Date();
 let date = now.getDate();
 let year = now.getFullYear();
-let hour = now.getHours();
-let minutes = now.getMinutes();
 
 let days = [
   "Sunday",
@@ -134,7 +132,7 @@ let months = [
 let month = months[now.getMonth()];
 
 let currentTime = document.querySelector("#current-time");
-currentTime.innerHTML = `${hour}:${minutes}`;
+currentTime.innerHTML = formatHours(`${now}`);
 
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = `${day}, ${month} ${date}, ${year}`;

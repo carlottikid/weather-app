@@ -64,7 +64,7 @@ body {
 }
 .card-body {
   border-radius: 8px;
-  background: #f4f1ee;
+  box-shadow: 0px 0px 8px lightgrey;
 }
 .card-body img {
   object-fit: contain;
