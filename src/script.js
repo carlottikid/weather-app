@@ -50,21 +50,50 @@ function handlePosition(position) {
 }
 
 function showWeather(response) {
+  let weatherElement = document.querySelector("#current-weather");
+  let currentWeather = response.data.list[0];
   let city = response.data.city.name;
-  let location = document.querySelector("#current-city");
-  let currentTemp = Math.round(response.data.list[0].main.temp);
-  let weatherDesc = response.data.list[0].weather[0].description;
-  let pop = response.data.list[0].pop;
-  let windSpeed = Math.round(response.data.list[0].wind.speed);
-  let weatherDisp = document.querySelector(".current-weather-desc");
-  let temp = document.querySelector("#current-temp");
-  let precip = document.querySelector("#precip");
-  let wind = document.querySelector("#wind");
-  wind.innerHTML = `${windSpeed}`;
-  precip.innerHTML = `${pop}`;
-  location.innerHTML = `${city}`;
-  weatherDisp.innerHTML = `${weatherDesc}`;
-  temp.innerHTML = `${currentTemp}°`;
+  let cityElement = document.querySelector("#current-city");
+  cityElement.innerHTML = `${city}`;
+
+  weatherElement.innerHTML = `<div class="row">
+        <div class="col-sm-12">
+          <h5 class="current-weather-desc">${
+            currentWeather.weather[0].description
+          }</h5>
+        </div>
+      </div>
+      <div class="d-flex flex-sm-row flex-wrap align-items-center">
+        <div class="flex-shrink-1">
+          <img id = "current-icon" src = "https://openweathermap.org/img/wn/${
+            currentWeather.weather[0].icon
+          }@2x.png"></img>
+        </div>
+        <div class="current-temp align-items-center">
+          <span id="current-temp">${Math.round(
+            currentWeather.main.temp
+          )}°</span>
+          <span class="temp-unit">F</span>
+        </div>
+        <div
+          class="d-flex"
+          style="flex-direction: column"
+        >
+          <div class="d-flex">
+            Precipitation:
+            <span class="secondary-metric" id="precip">${
+              currentWeather.pop
+            }</span>
+            %
+          </div>
+          <div class="d-flex">
+            Wind:
+            <span class="secondary-metric" id="wind">${Math.round(
+              currentWeather.wind.speed
+            )}</span>
+            mph
+          </div>
+        </div>`;
 }
 
 function showForecast(response) {
@@ -85,6 +114,7 @@ function showForecast(response) {
             }@2x.png"></img>
             <p class="card-text future-temp">
               <span>${Math.round(forecast.main.temp)}°</span>
+              <span class="temp-unit">F</span>
             </p>
           </div>
         </div>

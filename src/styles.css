@@ -32,7 +32,7 @@ body {
   font-size: 24px;
 }
 .current-temp {
-  padding: 4px 16px;
+  padding: 0px 16px;
   margin: 0px 64px 0px 0px;
   text-align: left;
   font-size: 60px;
@@ -70,12 +70,10 @@ body {
   object-fit: contain;
   max-width: 100%;
 }
-#temp-unit {
-  font-size: 25%;
+.temp-unit {
+  font-size: 75%;
   color: gray;
-}
-#temp-unit:hover {
-  cursor: pointer;
+  font-weight: lighter;
 }
 #loc-link {
   display: block;

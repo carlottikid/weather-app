@@ -57,22 +57,19 @@
           <span id="current-time"></span>
         </div>
       </div>
+      <div id = "current-weather">
       <div class="row">
         <div class="col-sm-12">
           <h5 class="current-weather-desc"></h5>
         </div>
       </div>
-      <div class="d-flex flex-sm-row flex-wrap">
+      <div class="d-flex flex-sm-row flex-wrap align-items-center">
         <div class="flex-shrink-1">
-          <i class="fas fa-bolt current-weather-icon"></i>
+          <img id = "current-icon"></img>
         </div>
         <div class="current-temp">
           <span id="current-temp"></span>
-          <span id="temp-unit">
-            <a id="farenheight">F</a>
-            |
-            <a id="celcius">C</a>
-          </span>
+          <span class="temp-unit">F</span>
         </div>
         <div
           class="d-flex justify-content-center"
@@ -90,6 +87,7 @@
           </div>
         </div>
       </div>
+    </div>
       <div class="space"></div>
       <div
         class="d-flex align-items-center justify-content-between flex-sm-wrap"
